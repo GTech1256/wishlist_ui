@@ -51,9 +51,9 @@ function App() {
 
 
           <h3>initDataUnsafe:</h3>
-          <code>
+          <pre style={{ 'wordBreak': 'break-word' }}>
             {JSON.stringify(initDataUnsafe, null, 4)}
-          </code>
+          </pre>
 
           <h3>initData</h3>
           <code>
