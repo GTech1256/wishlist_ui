@@ -45,7 +45,7 @@ function App() {
       >
         <div style={{ width: '200px' }}>
 
-          Hello
+          Привет, {initDataUnsafe?.user?.first_name}!
 
           <br />
 
