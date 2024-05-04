@@ -34,7 +34,7 @@ export function useTelegram() {
     onToggleBackButton,
     tg,
     initData:
-      environment.ENV === Env.Local && import.meta.env.REACT_APP_INIT_DATA ? import.meta.env.REACT_APP_INIT_DATA : tg.initData,
+      environment.ENV === Env.Dev && import.meta.env.REACT_APP_INIT_DATA ? import.meta.env.REACT_APP_INIT_DATA : tg.initData,
     user: tg.initDataUnsafe?.user,
     userId: TG_USER_ID,
     queryId: tg.initDataUnsafe?.query_id,

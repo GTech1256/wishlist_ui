@@ -7,8 +7,8 @@ import { store } from './store';
 import { useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
-// import environment from 'shared/config/environment';
-// import { Env } from 'types/enums/env';
+import environment from 'shared/config/environment';
+import { Env } from 'types/enums/env';
 import { useTelegram } from './hooks/telegram';
 
 function App() {
@@ -21,12 +21,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // if (environment.ENV !== Env.Local) {
-    //   console.log("platform: ", platform);
-    //   console.log("theme: ", colorScheme);
+    console.log({ ENV_ENV: environment.ENV }, 'environment.ENV')
+    console.log("platform: ", platform);
+    console.log("theme: ", colorScheme);
 
-    //   document.documentElement.classList.add("dev");
-    // }
+    if (environment.ENV === Env.Dev) {
+      document.documentElement.classList.add("dev");
+    }
+
     document.body.classList.add(`theme-${colorScheme}`);
   }, [platform, colorScheme]);
 

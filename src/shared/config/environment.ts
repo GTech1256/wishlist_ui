@@ -3,21 +3,11 @@ import { Environment } from "types/interfaces/environment";
 import { Language } from "types/models";
 import packageInfo from "../../../package.json";
 console.log(import.meta.env)
-const env: Env = (import.meta.env.REACT_APP_ENV as Env) || Env.Prod;
+const env: Env = (import.meta.env.MODE as Env) || Env.Prod;
 
 const ENVIRONMENT: { [key in Env]: Partial<Environment> } = {
-  [Env.Local]: {
-    ENV: Env.Local,
-    // Быстрый переход на Qa
-    // API_URL: import.meta.env.PUBLIC_URL + "/qa/api",
-    // Back
-    // API_URL: "https://ext.dev.seven.tech/vtb-bot/api/",
-  },
   [Env.Dev]: {
     ENV: Env.Dev,
-  },
-  [Env.Qa]: {
-    ENV: Env.Qa,
   },
   [Env.Prod]: {
     ENV: Env.Prod,
@@ -35,6 +25,8 @@ try {
 } catch (e) {
   console.error(e);
 }
+
+console.log({ env }, ENVIRONMENT[env], import.meta.env)
 
 export const environment: Environment = {
   ENV: Env.Prod,
