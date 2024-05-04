@@ -6,8 +6,6 @@ import Form from "shared/ui/form/Form";
 import Box from "shared/ui/box";
 import FormItem from "shared/ui/form/FormItem";
 import Input from "shared/ui/input/Input";
-import { Button } from "antd";
-import styles from "./AddWishPage.module.scss"
 import { useNavigate } from "react-router-dom";
 import { ROUTE_PATH } from "shared/config/routes";
 import { BackButton, MainButton, useShowPopup } from "@vkruglikov/react-telegram-web-app";
