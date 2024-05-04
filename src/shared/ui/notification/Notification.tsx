@@ -13,7 +13,7 @@ let messages: string[] = [];
 export const notification = (props: Props) => {
   const { key, message, description, duration } = props;
 
-  if (key) {
+  if (key && typeof key === "string") {
     if (messages.includes(key)) {
       return;
     }

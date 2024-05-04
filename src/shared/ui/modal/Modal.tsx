@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import ModalAnt, { ModalFuncProps, ModalProps } from "antd/es/modal";
 import classNames, { Argument } from "classnames";
 import "antd/es/modal/style/index.css";

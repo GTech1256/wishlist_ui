@@ -1,5 +1,5 @@
 import "antd/es/grid/style/index.css";
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import ColAnt, { ColProps } from "antd/es/grid/col";
 import classNames, { ClassValue } from "clsx";
 

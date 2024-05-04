@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import Spin, { SpinProps } from "antd/es/spin";
 import classNames from "clsx";
 import Icon from "shared/ui/icon/Icon";

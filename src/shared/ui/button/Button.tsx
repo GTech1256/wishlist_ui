@@ -1,5 +1,5 @@
 import classNames, { ClassValue } from "clsx";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Color, Size, Type } from "../../../types/interfaces/styles";
 import Spinner from "../spinner";

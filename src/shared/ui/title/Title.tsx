@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import classNames, { ClassValue } from "clsx";
 import { getTypographyClassNames } from "../../lib/classNames";
 import { Typography } from "../../../types/interfaces/typography";

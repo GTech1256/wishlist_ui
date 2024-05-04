@@ -2,7 +2,6 @@ import { Argument } from "classnames";
 import get from "lodash.get";
 import React, { PropsWithChildren, ReactElement, ReactNode, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { getValue } from "shared/lib/helpers";
 import Field from "shared/ui/field/Field";
 import { Typography } from "types/interfaces/typography";
 
@@ -23,10 +22,7 @@ const FormItem = (props: PropsWithChildren<Props>) => {
   const {
     control,
     unregister,
-    getFieldState,
-    formState: { isSubmitted, isDirty, touchedFields, errors },
-    getValues,
-    trigger,
+    formState: { isSubmitted, touchedFields, errors },
   } = useFormContext() || {};
 
   useEffect(() => {

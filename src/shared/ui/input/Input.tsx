@@ -1,4 +1,4 @@
-import React, { ChangeEvent, KeyboardEvent, ChangeEventHandler, PropsWithChildren, useState, useRef } from "react";
+import { ChangeEvent, KeyboardEvent, ChangeEventHandler, PropsWithChildren, useState, useRef } from "react";
 import "./Input.scss";
 import classNames, { Argument } from "classnames";
 import { Control, Controller, FieldValues } from "react-hook-form";
@@ -109,7 +109,7 @@ const Input = (props: PropsWithChildren<Props>) => {
             onChange?.(e);
             onChangeControl?.(e.target.value);
           },
-          onBlur: (e: any) => {
+          onBlur: () => {
             setFocus(false);
             onBlur?.();
           },

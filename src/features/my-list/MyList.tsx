@@ -25,6 +25,6 @@ export const MyList = () => {
     }
 
     return (
-        <List list={data} />
+        <List list={data!} />
     )
 }

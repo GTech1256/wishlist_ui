@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ReactInputMask from "react-input-mask";
-import { Control, Controller } from "react-hook-form";
+import { Control, Controller, ControllerRenderProps } from "react-hook-form";
 import classNames, { Argument } from "classnames";
-import { ControllerRenderProps } from "react-hook-form/dist/types/controller";
+// import { ControllerRenderProps } from "react-hook-form/dist/types/controller";
 import { Size } from "../../../types/interfaces/styles";
 import "./Input.scss";
 
@@ -38,9 +38,9 @@ const InputMask: React.FC<InputMaskProps> = (props) => {
     id,
     defaultValue = "",
     mask,
-    type,
+    // type,
     inputMode,
-    maskChar,
+    // maskChar,
   } = props;
   const [focus, setFocus] = useState(false);
 

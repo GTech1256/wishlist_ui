@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import InputMask, { InputMaskProps } from "./InputMask";
 
 interface OwnProps extends Omit<InputMaskProps, "mask"> {}

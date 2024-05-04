@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import Box from "shared/ui/box";
 import Title from "shared/ui/title";
 import styles from "./ErrorContent.module.scss";

@@ -1,5 +1,5 @@
 import classNames, { ClassValue } from "clsx";
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { Typography } from "types/interfaces/typography";
 import { getTypographyClassNames } from "../../lib/classNames";
 import styles from "./styles.module.scss";

@@ -1,6 +1,6 @@
 import "antd/es/radio/style/index.css";
 import classNames, { Argument } from "classnames";
-import React, { PropsWithChildren, useCallback, useEffect, useRef } from "react";
+import { PropsWithChildren, useCallback } from "react";
 import { getSpacingClassNames } from "shared/lib/classNames";
 import { Typography } from "types/interfaces/typography";
 import "./Radio.scss";
@@ -30,7 +30,7 @@ const Radio = (props: PropsWithChildren<Props>) => {
     name = "",
     defaultValue,
     control,
-    unregister,
+    // unregister,
     disable,
     checked,
     onChange,

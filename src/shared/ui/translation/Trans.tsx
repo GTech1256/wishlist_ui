@@ -1,6 +1,11 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { useTranslation } from "./useTranslation";
-import { Translation } from "../../config/translation";
+// import { Translation } from "../../config/translation";
+
+
+type Translation = {
+  en: string
+}
 
 interface OwnProps {
   i18nKey?: keyof Translation;

@@ -1,5 +1,5 @@
 import classNames, { Argument } from "classnames";
-import React, { PropsWithChildren, ReactNode } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 import { getInlineClassNames, getSpacingClassNames } from "shared/lib/classNames";
 import { Typography } from "types/interfaces/typography";
 import "./Field.scss";
@@ -19,7 +19,7 @@ interface OwnProps extends Partial<Typography> {
 export type FiledProps = OwnProps;
 
 const Field = (props: PropsWithChildren<FiledProps>) => {
-  const { label, className, errors, id, row, showError, ...rest } = props;
+  const { label, className, errors, id, row, showError } = props;
   let message = undefined;
   const errorMessage = errors?.message || undefined;
   const errorKey = errorMessage?.key || undefined;

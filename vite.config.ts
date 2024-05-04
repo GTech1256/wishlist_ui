@@ -10,7 +10,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      'shared': fileURLToPath(new URL('./src/shared', import.meta.url))
+      'shared': fileURLToPath(new URL('./src/shared', import.meta.url)),
+      'types': fileURLToPath(new URL('./src/types', import.meta.url))
     }
   }
 })

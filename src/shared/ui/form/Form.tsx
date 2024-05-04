@@ -1,7 +1,7 @@
-import React, { PropsWithChildren, SyntheticEvent, useEffect } from "react";
-import { FormProvider } from "react-hook-form";
-import { UseFormReturn } from "react-hook-form/dist/types";
-import { Subscription } from "react-hook-form/dist/utils/createSubject";
+import { PropsWithChildren, SyntheticEvent, useEffect } from "react";
+import { FormProvider, UseFormReturn } from "react-hook-form";
+// import { UseFormReturn } from "react-hook-form/dist/types";
+// import { Subscription } from "react-hook-form/dist/utils/createSubject";
 
 interface OwnProps<T extends any> {
   form: UseFormReturn<any>;
@@ -25,7 +25,7 @@ const Form = <T extends any>(props: PropsWithChildren<Props<T>>) => {
   const onSubmitForm = (e: SyntheticEvent) => {
     e.stopPropagation();
 
-    return handleSubmit((data) => onSubmit?.(data))(e);
+    return handleSubmit((data: any) => onSubmit?.(data))(e);
   };
 
   useEffect(() => {
@@ -33,10 +33,10 @@ const Form = <T extends any>(props: PropsWithChildren<Props<T>>) => {
   }, [isValid]);
 
   useEffect(() => {
-    let subscription: Subscription;
+    let subscription: any//: Subscription;
 
     if (onValueChange) {
-      subscription = watch((value, { name, type }) => {
+      subscription = watch((_, { type }: { type?: any }) => {
         if (type !== undefined) {
           const values = getValues();
           onValueChange?.(values);

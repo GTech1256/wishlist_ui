@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import SkeletonAnt, { SkeletonProps } from "antd/es/skeleton";
 import "antd/es/spin/style/index.css";
 import "antd/es/skeleton/style/index.css";

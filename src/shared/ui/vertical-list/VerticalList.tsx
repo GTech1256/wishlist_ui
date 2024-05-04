@@ -1,9 +1,9 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Box from "../box";
 import Row from "../row";
 import styles from "./VerticalList.module.scss";
 import Col from "../col";
-import Icon, { IconType } from "../icon/Icon";
+import Icon from "../icon/Icon";
 import Hr from "../hr";
 import clsx from "clsx";
 

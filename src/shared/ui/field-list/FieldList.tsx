@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import Box from "../box";
 import Hr from "../hr";
 import Span from "../span";

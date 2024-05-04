@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { InputType } from "types/enums/form";
 import Input, { InputProps } from "./Input";
 import Icon from "../icon/Icon";

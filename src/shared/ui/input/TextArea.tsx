@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./Input.scss";
 import classNames from "classnames";
 import { Argument } from "classnames";
@@ -21,7 +21,7 @@ interface OwnProps {
 
 type Props = OwnProps;
 
-const TextArea: React.FC<Props> = (props, ref) => {
+const TextArea: React.FC<Props> = (props) => {
   const {
     id,
     name = "",
@@ -29,7 +29,7 @@ const TextArea: React.FC<Props> = (props, ref) => {
     className,
     placeholder,
     disable,
-    size = "md",
+    // size = "md",
     rows = 3,
     value,
     autoFocus,
