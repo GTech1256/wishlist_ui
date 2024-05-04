@@ -1,7 +1,6 @@
-import Box from "shared/ui/box";
-import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { ROUTE_PATH } from "shared/config/routes";
+import { BackButton } from "@vkruglikov/react-telegram-web-app";
 
 
 export const MyWishListPage = () => {
@@ -12,8 +11,6 @@ export const MyWishListPage = () => {
     }
     
       return (
-        <Box>
-            <Button onClick={handleBackClick}>Назад</Button>
-        </Box>
+        <BackButton onClick={handleBackClick} />
       )
 }
