@@ -33,6 +33,7 @@ function App() {
           smoothButtonsTransition: true,
         }}
       >
+        {document.body.clientWidth}
         <RouterProvider router={router} />
       </WebAppProvider>
     </Provider>
