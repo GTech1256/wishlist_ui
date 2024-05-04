@@ -1,0 +1,186 @@
+// Tg Colors
+$tg_background: var(--tg-theme-bg-color);
+$tg_color: var(--tg-theme-text-color);
+$tg_hint: var(--tg-theme-hint-color);
+$tg_link: var(--tg-theme-link-color);
+$tg_button: var(--tg-theme-button-color);
+$tg_button_text: var(--tg-theme-button-text-color);
+$tg_bg_secondary: var(--tg-theme-secondary-bg-color);
+
+/* Colors */
+$transparent: transparent;
+
+// [day]
+$retailBlue: #0a2896;
+$mediumBlue: #1e4bd2;
+$cyan: #49a9f8;
+$red: #e62632;
+$black: #2f3441;
+$darkGray: #6b7683;
+$inputGray: #acb6c3;
+$strokeGray: #dce0eb;
+$gray: #ebedf5;
+$lightGray: #f4f7fa;
+$white: #fff;
+$lightBlue: #cef;
+$orange: #f1a038;
+$green: #4cc864;
+$darkRed: #ca181f;
+$lightRed: #fff0f1;
+
+// [night]
+$retailBlueNight: #2846b4;
+$mediumBlueNight: #3c69f0;
+$cyanNight: #4789ea;
+$redNight: #ff6c78;
+$blackNight: #e7eaf1;
+$darkGrayNight: #848a96;
+$inputGrayNight: #899098;
+$strokeGrayNight: #656773;
+$grayNight: #888a94;
+$lightGrayNight: #747475;
+$whiteNight: #0f1015;
+$lightNight: #6bceff;
+$orangeNight: #ffc860;
+$greenNight: #74f08c;
+$darkRedNight: #ff5e65;
+$lightRedNight: #673c3f;
+
+/* Theme */
+$them: var(--theme, "light");
+$main: var(--colorMain, $retailBlue);
+$secondary: var(--colorSecondary, $mediumBlue);
+$hover: var(--colorHover, $mediumBlue);
+$warning: var(--colorWarning, $orange);
+$success: var(--colorSuccess, $green);
+$danger: var(--colorDanger, $darkRed);
+$text: var(--colorText, $black);
+$subText: var(--colorSubText, $darkGray);
+$disable: var(--colorDisable, $darkGray);
+$disabledText: var(--colorDisabledText, $darkGray);
+$link: var(--colorLink, $cyan);
+$hoverLink: var(--colorHoverLink, $lightBlue);
+$background: var(--colorBackground, $white);
+$border: var(--colorBorder, $gray);
+$inputBorder: var(--colorInputBorder, $strokeGray);
+$paymentsListItemBackground: var(--colorPaymentsListItemBackground, $lightGray);
+$paymentsListItemBorder: var(--colorPaymentsListItemBorder, $lightGray);
+$paymentsListItemIconBackground: var(--colorPaymentsListItemIconBackground, $white);
+$buttonPrimary: var(--colorButtonPrimary, $mediumBlue);
+$buttonSecondary: var(--colorButtonSecondary, $cyan);
+$light: var(--colorLight, $lightGray);
+$fileUploadError: var(--colorLightRed, $lightRed);
+$themeColors: (
+  "main": $main,
+  "secondary": $secondary,
+  "hover": $hover,
+  "warning": $warning,
+  "success": $success,
+  "danger": $danger,
+  "text": $text,
+  "hoverLink": $hoverLink,
+  "subText": $subText,
+  "disable": $disable,
+  "link": $link,
+  "background": $background,
+  "border": $border,
+  "inputBorder": $inputBorder,
+  "buttonPrimary": $buttonPrimary,
+  "buttonSecondary": $buttonSecondary,
+  "light": $light,
+  "fileUploadError": $fileUploadError,
+);
+$defaultColors: (
+  "transparent": $transparent,
+  "white": $white,
+  "black": $black,
+  "dark": $darkGray,
+  "gray": $gray,
+  "blue": $retailBlue,
+  "mediumBlue": $mediumBlue,
+  "cyan": $cyan,
+  "lightBlue": $lightBlue,
+  "orange": $orange,
+  "red": $red,
+  "green": $green,
+);
+$colors: map-merge($defaultColors, $themeColors);
+
+/* Height / Width */
+$breakpoints: (
+  "xs": 320,
+  "sm": 576,
+  "md": 768,
+  "lg": 992,
+  "xl": 1200,
+  "xxl": 1600,
+);
+$max-width: 380px;
+
+/* Utilities */
+$sizes: ("xs", "sm", "md", "lg", "xl", "xxl");
+$spacers: (0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 80, 100);
+
+/* Size */
+$text_size: (
+  "xl": (
+    fz: 14px,
+    lh: 22px,
+  ),
+  "lg": (
+    fz: 14px,
+    lh: 22px,
+  ),
+  "md": (
+    fz: 14px,
+    lh: 22px,
+  ),
+  "sm": (
+    fz: 14px,
+    lh: 22px,
+  ),
+  "xs": (
+    fz: 14px,
+    lh: 22px,
+  ),
+);
+$header_size: (
+  "1": (
+    fz: 20px,
+    lh: 22px,
+    fw: 700,
+  ),
+  "2": (
+    fz: 16px,
+    lh: 22px,
+    fw: 600,
+  ),
+  "3": (
+    fz: 16px,
+    lh: 22px,
+  ),
+  "4": (
+    fz: 16px,
+    lh: 22px,
+  ),
+);
+$input_size: (
+  "sm": (
+    h: 40px,
+    p: 12px,
+    fz: 14px,
+    lh: 20px,
+  ),
+  "md": (
+    h: 40px,
+    p: 12px,
+    fz: 14px,
+    lh: 20px,
+  ),
+  "lg": (
+    h: 40px,
+    p: 12px,
+    fz: 14px,
+    lh: 20px,
+  ),
+);

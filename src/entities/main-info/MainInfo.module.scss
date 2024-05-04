@@ -1,0 +1,26 @@
+
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+
+.item:not(:last-child) {
+    margin-right: 16px;
+}
+
+
+
+.value {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.title {
+    text-align: center;
+}

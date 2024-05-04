@@ -7,6 +7,9 @@ import Box from "shared/ui/box";
 import FormItem from "shared/ui/form/FormItem";
 import Input from "shared/ui/input/Input";
 import { Button } from "antd";
+import styles from "./AddWishPage.module.scss"
+import { useNavigate } from "react-router-dom";
+import { ROUTE_PATH } from "shared/config/routes";
 
 type AddWishForm = {
     name: string;
@@ -29,6 +32,7 @@ const addWishSchema: ObjectSchema<AddWishForm> = yup.object({
 
 
 export const AddWishPage = () => {
+    const navigate = useNavigate()
     
     const form = useForm<AddWishForm>({
         resolver: yupResolver(addWishSchema),
@@ -38,42 +42,53 @@ export const AddWishPage = () => {
       });
 
     const handleSubmit = () => {
+        console.log('submit', form.formState.errors)
         form.handleSubmit((data) => {
             console.log(data)
             alert('Данные отправлены')
             form.reset()
         }, (errr) => {
             console.log(errr)
-        })
+        })()
+    }
+
+    const handleBackClick = () => {
+        navigate(ROUTE_PATH.home)
     }
     
       return (
-        <Form form={form}>
+        <div>
+            <Form form={form}>
 
-            <Box mb={16}>
-                <FormItem name="name" label="text" >
-                    <Input placeholder="Text"  />
-                </FormItem>
-            </Box>
-
-
-            <Box mb={16}>
-                <FormItem name="description" label="text" >
-                    <Input placeholder="Text"  />
-                </FormItem>
-            </Box>
+                <Box mb={16}>
+                    <FormItem name="name" label="Название*" >
+                        <Input  />
+                    </FormItem>
+                </Box>
 
 
-            <Box mb={16}>
-                <FormItem name="price" label="text" >
-                    <Input placeholder="Text" type="number"  />
-                </FormItem>
-            </Box>
+                <Box mb={16}>
+                    <FormItem name="description" label="Описание" >
+                        <Input  />
+                    </FormItem>
+                </Box>
 
-            <Box mb={16}>
-                <Button onClick={handleSubmit}>Подтвердить</Button>
-            </Box>
 
-        </Form>
+                <Box mb={16}>
+                    <FormItem name="price" label="Цена" >
+                        <Input type="number"  />
+                    </FormItem>
+                </Box>
+
+                <Box className={styles.buttons}>
+                    <Box mr={16}>
+                        <Button type="primary" onClick={handleSubmit}>Подтвердить</Button>
+                    </Box>
+                    <Box>
+                        <Button onClick={handleBackClick}>Назад</Button>
+                    </Box>
+                </Box>
+                </Form>
+        </div>
       )
 }

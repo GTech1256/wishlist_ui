@@ -1,0 +1,19 @@
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+@mixin h($fz: 20px, $lh: 28px, $fw: 500) {
+  font-size: $fz;
+  line-height: $lh;
+  font-weight: $fw;
+  margin: 0;
+}
+
+@mixin text_size($fz: 14px, $lh: 22px) {
+  font-size: $fz;
+  line-height: $lh;
+}

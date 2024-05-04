@@ -2,14 +2,14 @@ import { Env } from "types/enums/env";
 import { Environment } from "types/interfaces/environment";
 import { Language } from "types/models";
 import packageInfo from "../../../package.json";
-
-const env: Env = (process.env.REACT_APP_ENV as Env) || Env.Prod;
+console.log(import.meta.env)
+const env: Env = (import.meta.env.REACT_APP_ENV as Env) || Env.Prod;
 
 const ENVIRONMENT: { [key in Env]: Partial<Environment> } = {
   [Env.Local]: {
     ENV: Env.Local,
     // Быстрый переход на Qa
-    // API_URL: process.env.PUBLIC_URL + "/qa/api",
+    // API_URL: import.meta.env.PUBLIC_URL + "/qa/api",
     // Back
     // API_URL: "https://ext.dev.seven.tech/vtb-bot/api/",
   },
@@ -39,9 +39,9 @@ try {
 export const environment: Environment = {
   ENV: Env.Prod,
   VERSION: packageInfo?.version,
-  API_URL: process.env.PUBLIC_URL + "/api/",
-  PUBLIC_URL: process.env.PUBLIC_URL,
-  BASENAME: process.env.PUBLIC_URL,
+  API_URL: import.meta.env.PUBLIC_URL + "/api/",
+  PUBLIC_URL: import.meta.env.PUBLIC_URL,
+  BASENAME: import.meta.env.PUBLIC_URL,
   LANGUAGE: initDataLanguage,
   // GOOGLE_MAPS_API_KEY: "AIzaSyCWT5xNWbh7tB4hilJgiYCiinR8FOqe3l8",
   SENTRY_DSN: null,

@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.item:not(:last-child) {
+    margin-right: 16px;
+}
+
+.icon {
+    margin: auto;
+    margin-bottom: 4px;
+}

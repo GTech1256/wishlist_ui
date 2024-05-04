@@ -1,0 +1,77 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+@each $size in $sizes {
+  .text_#{$size} {
+    $values: map-get($text_size, $size);
+
+    @include text_size($values...);
+  }
+}
+
+@each $size in ("1", "2", "3", "4") {
+  .h#{$size} {
+    $values: map-get($header_size, $size);
+
+    @include h($values...);
+  }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.hovered {
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.break-word {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.preline {
+  white-space: pre-line;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.through {
+  text-decoration: line-through;
+}
+
+.spin {
+  animation: loading-circle 1s infinite linear;
+}
+
+.spin_slow {
+  animation: loading-circle 2s infinite linear;
+}
+
+.height_100 {
+  height: 100%;
+}
+
+@keyframes loading-circle {
+  100% {
+    transform: rotate(360deg);
+  }
+}

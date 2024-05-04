@@ -1,19 +1,34 @@
 import { useInitData, WebAppProvider } from '@vkruglikov/react-telegram-web-app';
+// import './TG.css'
 import './App.css'
+import './index.scss'
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
-
-
-// https://github.com/vkruglikov/react-telegram-web-app?tab=readme-ov-file#hooks
+// import environment from 'shared/config/environment';
+// import { Env } from 'types/enums/env';
+import { useTelegram } from './hooks/telegram';
 
 function App() {
-  // const [count, setCount] = useState(0)
-
-  // const [initDataUnsafe] = useInitData();
   const [initDataUnsafe] = useInitData();
+
+  const { tg, platform, colorScheme } = useTelegram();
+
+  useEffect(() => {
+    tg.ready();
+  }, []);
+
+  useEffect(() => {
+    // if (environment.ENV !== Env.Local) {
+    //   console.log("platform: ", platform);
+    //   console.log("theme: ", colorScheme);
+
+    //   document.documentElement.classList.add("dev");
+    // }
+    document.body.classList.add(`theme-${colorScheme}`);
+  }, [platform, colorScheme]);
 
 
   useEffect(() => {
@@ -33,7 +48,6 @@ function App() {
           smoothButtonsTransition: true,
         }}
       >
-        {document.body.clientWidth}
         <RouterProvider router={router} />
       </WebAppProvider>
     </Provider>
@@ -41,3 +55,4 @@ function App() {
 }
 
 export default App
+

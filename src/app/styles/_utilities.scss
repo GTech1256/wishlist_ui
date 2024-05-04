@@ -1,0 +1,198 @@
+@use "variables" as *;
+
+$utilities: (
+  color: (
+    property: color,
+    values: $colors,
+  ),
+  bg: (
+    property: background-color,
+    values: $colors,
+  ),
+  border: (
+    property: border,
+    values: (
+      "0": none,
+      "1": 1px solid $darkGray,
+    ),
+  ),
+  "border-b": (
+    property: border-bottom,
+    values: (
+      "0": none,
+      "1": 1px solid $darkGray,
+    ),
+  ),
+  radius: (
+    property: border-radius,
+    values: (
+      "0": none,
+      "2": 2px,
+      "6": 6px,
+      "10": 10px,
+      "14": 14px,
+      "50p": 50%,
+    ),
+  ),
+  position: (
+    property: position,
+    values: static relative absolute fixed sticky,
+  ),
+  cursor: (
+    property: cursor,
+    values: default pointer help move progress,
+  ),
+  text: (
+    property: text-align,
+    values: left center right,
+  ),
+  vertical: (
+    property: vertical-align,
+    values: top middle bottom,
+  ),
+  o: (
+    property: overflow,
+    values: auto hidden,
+  ),
+  d: (
+    property: display,
+    values: none inline inline-block block table table-row table-cell flex inline-flex,
+  ),
+  weight: (
+    property: font-weight,
+    values: normal 500 400 300 bold,
+  ),
+  m: (
+    property: margin,
+    values: $spacers,
+    units: px,
+  ),
+  mt: (
+    property: margin-top,
+    values: $spacers,
+    units: px,
+  ),
+  mr: (
+    property: margin-right,
+    values: $spacers,
+    units: px,
+  ),
+  mb: (
+    property: margin-bottom,
+    values: $spacers,
+    units: px,
+  ),
+  ml: (
+    property: margin-left,
+    values: $spacers,
+    units: px,
+  ),
+  p: (
+    property: padding,
+    values: $spacers,
+    units: px,
+  ),
+  pt: (
+    property: padding-top,
+    values: $spacers,
+    units: px,
+  ),
+  pr: (
+    property: padding-right,
+    values: $spacers,
+    units: px,
+  ),
+  pb: (
+    property: padding-bottom,
+    values: $spacers,
+    units: px,
+  ),
+  pl: (
+    property: padding-left,
+    values: $spacers,
+    units: px,
+  ),
+  top: (
+    property: top,
+    values: $spacers,
+    units: px,
+  ),
+  bottom: (
+    property: bottom,
+    values: $spacers,
+    units: px,
+  ),
+  right: (
+    property: right,
+    values: $spacers,
+    units: px,
+  ),
+  left: (
+    property: left,
+    values: $spacers,
+    units: px,
+  ),
+  direction: (
+    property: flex-direction,
+    values: (
+      row,
+      column,
+    ),
+  ),
+  align-items: (
+    property: align-items,
+    values: (
+      flex-start,
+      flex-end,
+      center,
+    ),
+  ),
+  justify: (
+    property: justify-content,
+    values: (
+      flex-start,
+      flex-end,
+      center,
+      space-between,
+    ),
+  ),
+  opacity: (
+    property: opacity,
+    values: (
+      "0": 0,
+      "30": 0.3,
+      "40": 0.4,
+      "50": 0.5,
+      "60": 0.6,
+      "70": 0.7,
+      "80": 0.8,
+      "90": 0.9,
+    ),
+  ),
+  shadow: (
+    property: box-shadow,
+    values: (
+      "6": 0 6px 13px #0000003f,
+    ),
+  ),
+);
+
+@each $class, $obj in $utilities {
+  $values: map-get($obj, "values");
+  $property: map-get($obj, "property");
+  $units: map-get($obj, "units");
+
+  @if type-of($values) == "map" {
+    @each $className, $value in $values {
+      .#{$class}-#{$className} {
+        #{$property}: #{$value}#{$units};
+      }
+    }
+  } @else {
+    @each $value in $values {
+      .#{$class}-#{$value} {
+        #{$property}: #{$value}#{$units};
+      }
+    }
+  }
+}

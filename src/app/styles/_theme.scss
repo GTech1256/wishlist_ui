@@ -1,0 +1,52 @@
+@use "/src/app/styles/variables" as *;
+
+:root {
+  --theme: "light";
+  --colorMain: #{$retailBlue};
+  --colorSecondary: #{$mediumBlue};
+  --colorHover: #{$mediumBlue};
+  --colorWarning: #{$orange};
+  --colorSuccess: #{$green};
+  --colorDanger: #{$darkRed};
+  --colorText: #{$black};
+  --colorSubText: #{$darkGray};
+  --colorDisable: #{$darkGray};
+  --colorDisabledText: #{$darkGray};
+  --colorLink: #{$cyan};
+  --colorHoverLink: #{$cyan};
+  --colorBackground: #{$white};
+  --colorBorder: #{$gray};
+  --colorInputBorder: #{$strokeGray};
+  --colorButtonPrimary: #{$mediumBlue};
+  --colorButtonSecondary: #{$cyan};
+  --colorLight: #{$lightGray};
+  --colorLightRed: #{$lightRed};
+  --colorPaymentsListItemBackground: #{$lightGray};
+  --colorPaymentsListItemBorder: #{$lightGray};
+}
+
+:root .theme-dark {
+  --theme: "dark";
+  --colorMain: #{$retailBlueNight};
+  --colorSecondary: #{$mediumBlueNight};
+  --colorHover: #{$mediumBlueNight};
+  --colorWarning: #{$orangeNight};
+  --colorSuccess: #{$greenNight};
+  --colorDanger: #{$darkRedNight};
+  --colorText: #{$blackNight};
+  --colorSubText: #{$darkGrayNight};
+  --colorDisable: #{$darkGrayNight};
+  --colorDisabledText: #{$strokeGray};
+  --colorLink: #{$cyanNight};
+  --colorHoverLink: #{$cyanNight};
+  --colorBackground: #{$whiteNight};
+  --colorBorder: #{$grayNight};
+  --colorInputBorder: #{$strokeGrayNight};
+  --colorButtonPrimary: #{$cyanNight};
+  --colorButtonSecondary: #{$cyanNight};
+  --colorLight: #{$lightGrayNight};
+  --colorLightRed: #{$lightRedNight};
+  --colorPaymentsListItemBackground: #{$whiteNight};
+  --colorPaymentsListItemBorder: #{$strokeGrayNight};
+  --colorPaymentsListItemIconBackground: #{$strokeGrayNight};
+}
