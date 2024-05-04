@@ -1,0 +1,10 @@
+@use "/src/app/styles/variables" as *;
+@use "/src/app/styles/mixins" as *;
+
+@each $size in $sizes {
+  .#{$size} {
+    $values: map-get($text_size, $size);
+
+    @include text_size($values...);
+  }
+}

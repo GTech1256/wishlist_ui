@@ -1,0 +1,24 @@
+@use "/src/app/styles/variables" as *;
+
+.select {
+  :global(.ant-select-selector) {
+    background: $background !important;
+    color: $text !important;
+  }
+}
+
+:global(.ant-select-item) {
+  color: $text !important;
+}
+
+:global(.ant-select-dropdown) {
+  background: $background !important;
+}
+
+:global(.ant-select-item-option-active) {
+  background: $background !important;
+}
+
+:global(.ant-select-item-option-selected) {
+  background: $border !important;
+}

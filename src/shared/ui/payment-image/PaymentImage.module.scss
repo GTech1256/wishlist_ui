@@ -1,0 +1,37 @@
+@use "/src/app/styles/variables" as *;
+
+.img_wrap {
+  width: 40px;
+  height: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $retailBlue;
+  border-radius: 3px;
+}
+
+.inline {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+
+  .img {
+    > svg {
+      fill: currentColor;
+    }
+  }
+}
+
+.img {
+  width: 22px;
+  max-height: 26px;
+
+  > svg {
+    display: block;
+    height: inherit;
+    width: inherit;
+  }
+}

@@ -1,0 +1,11 @@
+@use "src/app/styles/variables" as *;
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  background: $background;
+  z-index: 1;
+}

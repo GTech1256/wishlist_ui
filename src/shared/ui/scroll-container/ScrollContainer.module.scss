@@ -1,0 +1,37 @@
+@use "/src/app/styles/variables" as *;
+
+.scrollContainerWrapper {
+  overflow: hidden;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollContainer {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  -ms-overflow-style: none;
+  position: relative;
+}
+
+.scrollBar {
+  position: absolute;
+  right: 0;
+  width: 9px;
+  bottom: 0;
+  border-radius: 7px;
+}
+
+.scrollThumb {
+  width: 9px;
+  position: absolute;
+  border-radius: 9px;
+  top: 0;
+  background: $border;
+}
+
+.scrollThumb:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,21 @@
+@use "src/app/styles/variables" as *;
+
+.notification {
+  background: $background;
+  color: $text;
+  box-shadow: 0 3px 6px -4px rgb(0 0 0 / 0.12), 0 6px 16px 0 rgb(0 0 0 / 0.08), 0 9px 28px 8px rgb(0 0 0 / 0.05);
+
+  .ant-notification-notice-message {
+    color: $text;
+  }
+
+  .ant-notification-notice-close {
+    color: rgba($text, 0.5);
+  }
+}
+
+.theme-dark {
+  .notification {
+    box-shadow: 0 3px 6px -4px rgb(255 255 255 / 0.12), 0 6px 16px 0 rgb(255 255 255 / 0.08), 0 9px 28px 8px rgb(255 255 255 / 0.05);
+  }
+}

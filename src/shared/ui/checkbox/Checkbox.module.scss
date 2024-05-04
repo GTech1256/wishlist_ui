@@ -1,0 +1,80 @@
+@use "/src/app/styles/variables" as *;
+
+.container {
+  display: flex;
+}
+
+%label {
+  padding-left: 8px;
+  max-width: 332px;
+}
+
+.label {
+  @extend %label;
+
+  &__error {
+    color: $danger !important;
+  }
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+  user-select: none;
+  margin-top: 3px;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+%checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background: $background;
+  border: 1px solid $inputBorder;
+  border-radius: 2px;
+}
+
+.checkmark {
+  @extend %checkmark;
+
+  &__error {
+    border: 1px solid $danger;
+  }
+}
+
+.checkbox input:checked ~ .checkmark {
+  background-color: $link;
+  border: 1px solid $link;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox input:checked ~ .checkmark::after {
+  display: block;
+}
+
+.checkbox .checkmark::after {
+  left: 4.5px;
+  top: 1.5px;
+  width: 5px;
+  height: 9px;
+  border: solid $white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

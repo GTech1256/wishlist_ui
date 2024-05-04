@@ -3,11 +3,12 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const BASE_URL = 'http://localhost:3000'
 
-type Item = {
+export type Item = {
     id: string;
     name: string;
     description: string;
     price: number;
+    image: string;
 
 }
 type List = Array<Item>

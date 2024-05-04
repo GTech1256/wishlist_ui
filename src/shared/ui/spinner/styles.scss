@@ -1,0 +1,35 @@
+@use "/src/app/styles/variables" as *;
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_full {
+    height: 100vh;
+  }
+
+  &_inline {
+    display: inline-flex;
+  }
+
+  .ant-spin-dot {
+    display: block;
+  }
+
+  .ant-spin {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ant-spin-dot-item {
+    background-color: $black;
+  }
+
+  .color-white {
+    .ant-spin-dot-item {
+      background-color: $white;
+    }
+  }
+}

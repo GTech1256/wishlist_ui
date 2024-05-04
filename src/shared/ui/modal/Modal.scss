@@ -1,0 +1,134 @@
+@use "src/app/styles/variables" as *;
+
+.modal {
+  max-width: calc(100vw - 16px);
+  margin: 8px auto;
+  color: $black;
+
+  .ant-modal-content {
+    background: $white;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+  }
+
+  .ant-modal-header {
+    padding: 16px 22px 16px 24px;
+    border-radius: 2px 2px 0 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .ant-modal-footer {
+    padding: 10px 16px;
+    border-radius: 0 0 2px 2px;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .ant-modal-body {
+    padding: 24px;
+    border-radius: 0 0 10px 10px;
+
+    & + .ant-modal-footer {
+      border-radius: 0;
+    }
+  }
+
+  .ant-modal-close {
+    top: 22px;
+    right: 22px;
+    color: $subText;
+
+    .ant-modal-close-x {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+    }
+  }
+
+  &.grey {
+    .ant-modal-body {
+      background: $gray;
+    }
+  }
+
+  &.blue3 {
+    .ant-modal-body {
+      background: $lightBlue;
+    }
+  }
+
+  &_footer-sticky {
+    .ant-modal-footer {
+      background: $white;
+      position: sticky;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.modal-confirm {
+  .ant-modal-body {
+    padding: 32px 32px 24px;
+  }
+
+  .ant-modal-confirm-content {
+    margin-top: 0;
+  }
+
+  .ant-modal-confirm-btns {
+    cursor: pointer;
+    display: flex;
+    margin-top: 26px;
+    float: none;
+    justify-content: flex-end;
+
+    button + button {
+      margin-bottom: 0;
+      margin-left: 8px;
+    }
+
+    .ant-btn {
+      overflow: hidden;
+      white-space: nowrap;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      transition-property: color, opacity, background-color, border;
+      transition-duration: 100ms;
+      outline: none;
+      border: 1px solid $gray;
+      box-sizing: border-box;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.016);
+      border-radius: 2px;
+      font-size: 14px;
+      line-height: 22px;
+      height: 32px;
+      padding: 0 16px;
+      width: auto;
+      min-width: 80px;
+      background: transparent;
+      color: $text;
+
+      &:hover:not(:disabled) {
+        opacity: 0.8;
+      }
+
+      &.ant-btn-primary {
+        background: $main;
+        color: $white;
+      }
+
+      &.modal-cancel {
+        color: $link;
+        border: none;
+      }
+
+      &.modal-ok_delete {
+        background: $danger;
+      }
+    }
+  }
+}

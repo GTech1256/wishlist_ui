@@ -4,6 +4,8 @@ import { List } from '../futures/list/list';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { useEffect } from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
 
 const Content = () => {
@@ -43,27 +45,7 @@ function App() {
           smoothButtonsTransition: true,
         }}
       >
-        <div style={{ width: '200px' }}>
-
-          Привет, {initDataUnsafe?.user?.first_name}!
-
-          <br />
-
-
-          <h3>initDataUnsafe:</h3>
-          <pre style={{ 'wordBreak': 'break-word' }}>
-            {JSON.stringify(initDataUnsafe, null, 4)}
-          </pre>
-
-          <h3>initData</h3>
-          <pre style={{ 'wordBreak': 'break-word' }}>
-            {JSON.stringify(initData, null, 4)}
-          </pre >
-        </div>
-
-        <List />
-
-        <Content />
+        <RouterProvider router={router} />
       </WebAppProvider>
     </Provider>
   )

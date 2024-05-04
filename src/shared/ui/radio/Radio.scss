@@ -1,0 +1,162 @@
+@use "/src/app/styles/variables" as *;
+
+$radioMain: $link;
+$radioText: $text;
+$radioBorder: $inputBorder;
+$radioDisabled: $disable;
+$radioDisabledText: $disabledText;
+$radioDisabledBg: $border;
+$radioDisabledCheckedBg: $hoverLink;
+$radioTextInverse: $background;
+
+.radio {
+  // Общее
+  &_disable {
+    .radio__text {
+      cursor: not-allowed !important;
+      color: $radioDisabledText !important;
+    }
+
+    input {
+      cursor: not-allowed !important;
+    }
+  }
+
+  &__input {
+    display: block;
+    position: relative;
+
+    input {
+      cursor: pointer;
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      z-index: 1;
+    }
+  }
+
+  &__text {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  // Default
+  &_default:not(&_disable) &__label:hover {
+    .radio__border {
+      border-color: $radioMain;
+    }
+  }
+
+  &_default &__input {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+
+    input {
+      &:checked + .radio__circle {
+        border: 5px solid $radioMain;
+      }
+
+      &:checked + .radio__circle + .radio__border {
+        border-color: $radioMain;
+      }
+
+      &:disabled + .radio__circle + .radio__border {
+        background-color: $radioDisabledBg;
+      }
+
+      &:checked:disabled + .radio__circle {
+        border: 5px solid $radioDisabled;
+      }
+
+      &:checked:disabled + .radio__circle + .radio__border {
+        border-color: $radioDisabled;
+      }
+    }
+  }
+
+  &_default &__label {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &_default &__circle {
+    cursor: pointer;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    left: 5px;
+    top: 5px;
+    border-radius: 50%;
+    z-index: 1;
+    border: none;
+    background: transparent;
+  }
+
+  &_default &__border {
+    cursor: pointer;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    z-index: 0;
+    border: 2px solid $radioBorder;
+    background: transparent;
+  }
+
+  &_default &__text {
+    padding-left: 8px;
+    color: $radioText;
+  }
+
+  // Button
+  &_button:not(&_disable) &__label:hover {
+    .radio__border {
+      border-color: $radioMain;
+    }
+  }
+
+  &_button {
+    border: 1px solid $radioBorder;
+    overflow: hidden;
+  }
+
+  &_button &__input {
+    input {
+      &:checked + .radio__button {
+        background-color: $radioMain;
+        color: $radioTextInverse;
+      }
+
+      &:disabled + .radio__button {
+        background-color: $radioDisabledBg;
+      }
+
+      &:checked:disabled + .radio__button {
+        background-color: $radioDisabledCheckedBg;
+      }
+    }
+  }
+
+  &_button &__button {
+    height: 38px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+  }
+
+  &_button &__text {
+    text-align: center;
+    color: inherit;
+  }
+}

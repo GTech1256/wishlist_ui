@@ -1,0 +1,52 @@
+.rotate {
+  $animation: 500ms;
+
+  &-enter {
+    transform: rotateY(-90deg);
+  }
+
+  &-enter-active {
+    transform: rotateY(0deg);
+  }
+
+  &-exit {
+    transform: rotateY(0deg);
+  }
+
+  &-exit-active {
+    transform: rotateY(90deg);
+  }
+
+  &-enter,
+  &-exit,
+  &-enter-active,
+  &-exit-active {
+    transition: transform $animation ease-in-out;
+    transform-origin: center;
+  }
+}
+
+.fade {
+  $delay: 400ms;
+
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    opacity: 1;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+  }
+
+  &-enter-active,
+  &-exit-active {
+    transition: opacity $delay;
+  }
+}

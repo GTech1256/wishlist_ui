@@ -1,0 +1,35 @@
+@use "src/app/styles/variables" as *;
+
+.layer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  padding: 16px;
+
+  &__isSetOverlay {
+    padding: 0;
+  }
+}
+
+.header {
+  flex: 0 1 auto;
+}
+
+.content {
+  flex: 0 1 auto;
+
+  &.full {
+    flex: 1 1 auto;
+  }
+}
+
+.buttons {
+  flex: 0 1 auto;
+  position: sticky;
+  bottom: 0;
+  top: 200px;
+  background: $background;
+  padding-bottom: 12px;
+}

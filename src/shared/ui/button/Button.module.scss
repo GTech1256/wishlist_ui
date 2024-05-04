@@ -1,0 +1,216 @@
+@use "/src/app/styles/variables" as *;
+
+// Mixins
+@mixin size($height: 38px, $padding: 8px 12px, $fs: 16px) {
+  font-size: $fs;
+  line-height: 22px;
+  height: $height;
+  padding: $padding;
+}
+
+@mixin icon_size($size: 38px) {
+  min-width: $size;
+  min-height: $size;
+}
+
+@mixin color(
+  $color,
+  $textColor: $white,
+  $borderColor: $color,
+  $textButtonColor: $color,
+  $hoverColor: $color,
+  $activeColor: $color
+) {
+  background: $color;
+  color: $textColor;
+  border: 1px solid $borderColor;
+
+  &:hover:not(:disabled) {
+    color: $textColor;
+
+    @if $hoverColor != $color {
+      background: $hoverColor;
+      border: 1px solid $hoverColor;
+      opacity: 1 !important;
+    } @else {
+      opacity: 0.8 !important;
+    }
+  }
+
+  @if $activeColor != $color {
+    &:active {
+      background: $activeColor;
+      border: 1px solid $activeColor;
+    }
+  }
+
+  &_inversion {
+    background: $transparent;
+    color: $color;
+    border: 1px solid $borderColor;
+
+    &:hover {
+      color: $color;
+    }
+  }
+
+  &_text {
+    color: $textButtonColor;
+  }
+}
+
+// Base
+.button {
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  transition-property: color, opacity, background-color, border;
+  transition-duration: 100ms;
+  outline: none;
+  border-radius: 8px;
+
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus {
+    opacity: 0.5;
+  }
+
+  &:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+}
+
+.button_base {
+  width: auto;
+  display: flex;
+}
+
+.icon {
+  padding: 0;
+}
+
+.squared {
+  border-radius: 0 !important;
+}
+
+.circle {
+  border-radius: 100px;
+}
+
+.circle_icon {
+  border-radius: 50%;
+}
+
+.shadow {
+  box-shadow: 0 10px 20px #0003;
+}
+
+.block {
+  width: 100%;
+}
+
+.inline {
+  display: inline-flex;
+}
+
+.text {
+  background: transparent;
+  white-space: pre-wrap;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+  height: auto;
+
+  &:hover:not(:disabled) {
+    background: transparent;
+    border: 0;
+    text-decoration: none;
+  }
+
+  &.ellipsis {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus {
+    background: transparent !important;
+    border: none !important;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.dashed {
+  border-style: dashed !important;
+}
+
+/* Size */
+$button_size: (
+  "md": (
+    38px,
+    8px 12px,
+    16px,
+  ),
+);
+$icon_size: (
+  "md": (
+    38px,
+  ),
+);
+
+@each $size in $sizes {
+  .#{$size} {
+    $values: map-get($button_size, $size);
+
+    @if $values {
+      @include size($values...);
+    } @else {
+      @include size;
+    }
+  }
+  .icon_#{$size} {
+    $values: map-get($icon_size, $size);
+
+    @if $values {
+      @include icon_size($values...);
+    } @else {
+      @include icon_size;
+    }
+  }
+}
+
+/* Colors */
+.default {
+  @include color($text, $borderColor: $gray, $textButtonColor: $text);
+}
+
+.danger {
+  @include color($danger);
+}
+
+.warning {
+  @include color($warning);
+}
+
+.success {
+  @include color($success);
+}
+
+.primary {
+  @include color($buttonPrimary);
+}
+
+.secondary {
+  @include color($buttonSecondary);
+}

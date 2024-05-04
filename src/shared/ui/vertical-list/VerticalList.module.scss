@@ -1,0 +1,29 @@
+@use "/src/app/styles/variables" as *;
+
+.rows {
+  display: block;
+}
+
+.row {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+    transition: all 400ms ease-out;
+  }
+
+  .img_wrap {
+    width: 40px;
+    height: 27px;
+    background: $retailBlue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+  }
+
+  .img {
+    width: 22px;
+    max-height: 26px;
+  }
+}
