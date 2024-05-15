@@ -8,8 +8,6 @@ export const withUserData = (component: () => React.ReactNode) => () => {
   const [initDataUnsafe] = useInitData()
   const [loading, setLoading] = useState(true)
 
-  getAuthData
-
   if (loading) {
 
   }
@@ -31,8 +29,3 @@ export const withUserData = (component: () => React.ReactNode) => () => {
     </BrowserRouter>
   )
 };
-
-
-const UserLoader = ({ userId }: { userId: string }) => {
-  const 
-}
