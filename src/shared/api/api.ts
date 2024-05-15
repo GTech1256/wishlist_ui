@@ -28,7 +28,7 @@ export const api = createApi({
   }),
   endpoints: (builder) => ({
     getAuthData: builder.query<List, void>({
-      query: () => `/auth/data`,
+      query: () => `/user/auth/data`,
     }),
 
     getList: builder.query<List, { limit?: number }>({
