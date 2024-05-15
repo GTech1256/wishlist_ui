@@ -1,6 +1,6 @@
 import { ROUTE_PATH } from "shared/config/routes"
 import styles from "./MainRoutes.module.scss"
-import { PlusCircleFilled } from "@ant-design/icons"
+import { PlusCircleFilled, UnorderedListOutlined } from "@ant-design/icons"
 import { Link } from "react-router-dom"
 
 export const MainRoutes = () => {
@@ -14,7 +14,7 @@ export const MainRoutes = () => {
                 Публичные Желания
             </a> */}
             <Link className={styles.item} to={ROUTE_PATH.myWishList}>
-                <PlusCircleFilled className={styles.icon} />
+                <UnorderedListOutlined className={styles.icon} />
                 <span>Мой список Желаний</span>
             </Link>
         </div>

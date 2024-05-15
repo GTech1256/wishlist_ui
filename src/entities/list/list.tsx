@@ -10,8 +10,7 @@ export const List = ({ list }: Props) => {
     if (list.length === 0) {
         return (
             <div>
-                <p>Список Желаний пусть</p>
-                <button>Добавить первое Желание</button>
+                <p style={{ textAlign: 'center' }}>Список Желаний пусть</p>
             </div>
         )
     } 
