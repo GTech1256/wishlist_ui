@@ -27,9 +27,12 @@ export const List = ({ title, list }: Props) => {
     } 
 
     const getActions = (item: Item) => {
-        const actions = [
-            <IconText icon={WalletOutlined} text={`${item?.price}`} key="price" />,
-        ]
+        const actions = []
+
+
+        if (item?.price) {
+            actions.push(<IconText icon={UserOutlined} text={`${item?.user?.name} ${item?.user?.lastName}`} key="list-vertical-star-o" />)
+        }
 
         if (item?.user) {
             actions.push(<IconText icon={UserOutlined} text={`${item?.user?.name} ${item?.user?.lastName}`} key="list-vertical-star-o" />)
