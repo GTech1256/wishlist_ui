@@ -1,7 +1,7 @@
 import { List as AntList, Space } from "antd"
 import { User, Wish } from "../../shared/api/api"
 import { UserOutlined } from "@ant-design/icons"
-import React, { ReactNode } from "react"
+import React from "react"
 
 type Props = {
     title: string
