@@ -2,6 +2,7 @@ import { useGetUserStatsDataQuery, UserStats } from 'shared/api/api'
 import styles from './MainInfo.module.scss'
 import { Spin } from 'antd'
 import { Stats } from './Stats'
+import { useEffect } from 'react'
 
 const defaultUserStats: UserStats = {
     wishComplete: 0,
@@ -9,8 +10,11 @@ const defaultUserStats: UserStats = {
     wishTotal: 0
 }
 export const MainInfo = () => {
+    const { data, isLoading, isError, refetch } = useGetUserStatsDataQuery()
 
-    const { data, isLoading, isError } = useGetUserStatsDataQuery()
+    useEffect(() => {
+        refetch()
+    }, [refetch])
 
     if (data) {
 

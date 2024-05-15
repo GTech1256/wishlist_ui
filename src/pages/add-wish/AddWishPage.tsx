@@ -30,8 +30,6 @@ const addWishSchema: ObjectSchema<AddWishForm> = yup.object({
     image: yup.string(),
 });
 
-
-
 export const AddWishPage = () => {
     const navigate = useNavigate()
     const showPopup = useShowPopup();
