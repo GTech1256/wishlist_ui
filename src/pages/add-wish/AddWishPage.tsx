@@ -57,7 +57,7 @@ export const AddWishPage = () => {
 
     const handleSubmit = () => {
         form.handleSubmit(async (data) => {
-            updatePost(data)
+            await updatePost(data)
 
             
 
