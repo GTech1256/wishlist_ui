@@ -1,16 +1,16 @@
 import { BrowserRouter } from "react-router-dom";
 import config from "shared/config/environment";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import Spinner from "../../shared/ui/spinner";
 import { useInitData } from "@vkruglikov/react-telegram-web-app";
 
 export const withUserData = (component: () => React.ReactNode) => () => {
   const [initDataUnsafe] = useInitData()
-  const [loading, setLoading] = useState(true)
+  // const [loading, setLoading] = useState(true)
 
-  if (loading) {
+  // if (loading) {
 
-  }
+  // }
 
   const userId = initDataUnsafe?.user?.id
 
