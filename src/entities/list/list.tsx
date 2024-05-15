@@ -2,10 +2,11 @@ import { List as AntList } from "antd"
 import { Wish } from "../../shared/api/api"
 
 type Props = {
+    title: string
     list: Array<Wish>
 }
 
-export const List = ({ list }: Props) => {
+export const List = ({ title, list }: Props) => {
     // const [initDataUnsafe, initData] = useInitData();
 
     if (list.length === 0) {
@@ -18,7 +19,7 @@ export const List = ({ list }: Props) => {
 
     return (
         <AntList
-            header={<div>Личный список</div>}
+            header={<div>{title}</div>}
             // footer={<div>Footer</div>}
             bordered
             dataSource={list}

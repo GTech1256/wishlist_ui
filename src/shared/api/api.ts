@@ -76,11 +76,16 @@ export const api = createApi({
     getPersonalWishes: builder.query<List, { limit?: number } | void>({
       query: ({ limit } = {}) => `/wish/user?limit=${limit}`,
     }),
+
+
+    getPublicWishes: builder.query<List, { limit?: number } | void>({
+      query: ({ limit } = {}) => `/wish/public?limit=${limit}`,
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetPersonalWishesQuery, useGetAuthDataQuery, useLazyGetAuthDataQuery, useAddWishMutation, useEditWishMutation, useGetUserStatsDataQuery } = api
+export const { useGetPersonalWishesQuery, useGetAuthDataQuery, useLazyGetAuthDataQuery, useAddWishMutation, useEditWishMutation, useGetUserStatsDataQuery, useGetPublicWishesQuery } = api
 
 

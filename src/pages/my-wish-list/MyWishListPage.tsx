@@ -17,7 +17,7 @@ export const MyWishListPage = () => {
         <div>
           <BackButton onClick={handleBackClick} />
 
-          {isLoading ? 'Loading' : isError ? 'Error' : data ? <List list={data} /> : '***'}
+          {isLoading ? 'Loading' : isError ? 'Error' : data ? <List title="Личный список" list={data} /> : '***'}
         </div>
       )
 }

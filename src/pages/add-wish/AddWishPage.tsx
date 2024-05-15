@@ -11,12 +11,14 @@ import { ROUTE_PATH } from "shared/config/routes";
 import { BackButton, MainButton, useShowPopup } from "@vkruglikov/react-telegram-web-app";
 import { useAddWishMutation } from "shared/api/api";
 import { useEffect } from "react";
+import { Checkbox } from "shared/ui/checkbox";
 
 type AddWishForm = {
     title: string;
     description?: string;
     price?: number;
     image?: string;
+    isPublic?: boolean;
 }
 
 const TEXT_SQL_MAX_LENGTH = 65_535
@@ -28,6 +30,7 @@ const addWishSchema: ObjectSchema<AddWishForm> = yup.object({
     description: yup.string().max(TEXT_SQL_MAX_LENGTH),
     price: yup.number().min(INT_SQL_MIN_VALUE).max(INT_SQL_MAX_VALUE),
     image: yup.string(),
+    isPublic: yup.bool(),
 });
 
 export const AddWishPage = () => {
@@ -53,6 +56,9 @@ export const AddWishPage = () => {
         mode: "all",
         criteriaMode: "all",
         reValidateMode: "onChange",
+        defaultValues: {
+            isPublic: true
+        }
       });
 
     const handleSubmit = () => {
@@ -98,6 +104,13 @@ export const AddWishPage = () => {
                 <Box mb={16}>
                     <FormItem name="price" label="Цена" >
                         <Input type="number"  />
+                    </FormItem>
+                </Box>
+
+
+                <Box mb={16}>
+                    <FormItem name="isPublic" label="Публичное желание" >
+                        <Checkbox  />
                     </FormItem>
                 </Box>
 

@@ -1,10 +1,10 @@
 import { Spin } from "antd"
 import { List } from "../../entities/list/list"
-import { useGetPersonalWishesQuery } from "../../shared/api/api"
+import { useGetPublicWishesQuery } from "../../shared/api/api"
 import { useEffect } from "react"
 
-export const MyList = () => {
-    const d = useGetPersonalWishesQuery({ limit: 5 })
+export const PublicList = () => {
+    const d = useGetPublicWishesQuery({ limit: 5 })
     const { data, error, isError, isLoading, status } = d
 
     useEffect(() => {
@@ -34,6 +34,6 @@ export const MyList = () => {
     }
 
     return (
-        <List title="Личный список" list={data} />
+        <List title="Публичный список" list={data} />
     )
 }
