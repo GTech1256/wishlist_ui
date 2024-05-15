@@ -34,7 +34,7 @@ function App() {
       document.documentElement.classList.add("dev");
     }
 
-    document.body.classList.add(`theme-${colorScheme}`);
+    // document.body.classList.add(`theme-${colorScheme}`);
   }, [platform, colorScheme]);
 
 
