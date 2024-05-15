@@ -13,7 +13,7 @@ import { useAddWishMutation } from "shared/api/api";
 import { useEffect } from "react";
 
 type AddWishForm = {
-    name: string;
+    title: string;
     description?: string;
     price?: number;
     image?: string;
@@ -24,7 +24,7 @@ const INT_SQL_MIN_VALUE = -2_147_483_648
 const INT_SQL_MAX_VALUE = 2_147_483_647
 
 const addWishSchema: ObjectSchema<AddWishForm> = yup.object({
-    name: yup.string().max(255).required(),
+    title: yup.string().max(255).required(),
     description: yup.string().max(TEXT_SQL_MAX_LENGTH),
     price: yup.number().min(INT_SQL_MIN_VALUE).max(INT_SQL_MAX_VALUE),
     image: yup.string(),
@@ -82,7 +82,7 @@ export const AddWishPage = () => {
             <Form form={form}>
 
                 <Box mb={16}>
-                    <FormItem name="name" label="Название*" >
+                    <FormItem name="title" label="Название*" >
                         <Input  />
                     </FormItem>
                 </Box>

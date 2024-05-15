@@ -19,7 +19,7 @@ export const List = ({ list }: Props) => {
         <div>
             {list.map(item => (
                 <div>
-                    <p>{item.name}</p>
+                    <p>{item.title}</p>
                 </div>
             ))}
         </div>

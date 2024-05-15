@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 const BASE_URL = 'https://wishlist.sytes.net/api'
 
 export type CreateWish = {
-  name: string;
+  title: string;
   description?: string;
   price?: number;
   image?: string;
@@ -12,7 +12,7 @@ export type CreateWish = {
 
 export type Wish = {
     id: string;
-    name: string;
+    title: string;
     description: string | null;
     price: number | null;
     image: string | null;
