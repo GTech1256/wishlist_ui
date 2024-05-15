@@ -2,6 +2,7 @@ import { List as AntList, Space } from "antd"
 import { User, Wish } from "../../shared/api/api"
 import { UserOutlined, WalletOutlined } from "@ant-design/icons"
 import React from "react"
+import styles from "./list.module.scss"
 
 type Item = Wish & { user?: User }
 
@@ -10,7 +11,7 @@ type Props = {
     list: Array<Item>
 }
 
-const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
+const IconText = ({ icon, text }: { icon: React.FC; text: string | number }) => (
     <Space>
       {React.createElement(icon)}
       {text}
@@ -31,7 +32,7 @@ export const List = ({ title, list }: Props) => {
 
 
         if (item?.price) {
-            actions.push(<IconText icon={UserOutlined} text={`${item?.user?.name} ${item?.user?.lastName}`} key="list-vertical-star-o" />)
+            actions.push(<IconText icon={WalletOutlined} text={item.price} key="list-vertical-price" />)
         }
 
         if (item?.user) {
@@ -44,15 +45,15 @@ export const List = ({ title, list }: Props) => {
 
     return (
         <AntList
-            header={<div>{title}</div>}
+            header={<p>{title}</p>}
             bordered
             dataSource={list}
             renderItem={(item, index) => (
                 <AntList.Item key={item.id} actions={getActions(item)}>
                     <AntList.Item.Meta
-                        title={<p>{index + 1}. {item.title}</p>}
+                        title={<p className={styles.cutText}>{index + 1}. {item.title}</p>}
                         // title={<a href="https://ant.design">{item.title}</a>}
-                        description={item.description}
+                        description={<p className={styles.cutText}>{item.description}</p>}
                     />
                 </AntList.Item>
             )}
