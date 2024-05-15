@@ -51,9 +51,9 @@ export const List = ({ title, list }: Props) => {
             renderItem={(item, index) => (
                 <AntList.Item key={item.id} actions={getActions(item)}>
                     <AntList.Item.Meta
-                        title={<p className={styles.cutText}>{index + 1}. {item.title}</p>}
+                        title={<p className={styles.cutText} title={item.title}>{index + 1}. {item.title}</p>}
                         // title={<a href="https://ant.design">{item.title}</a>}
-                        description={<p className={styles.cutText}>{item.description}</p>}
+                        description={<p className={styles.cutText} title={item.description ?? undefined}>{item.description}</p>}
                     />
                 </AntList.Item>
             )}
