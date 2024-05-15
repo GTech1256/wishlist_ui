@@ -1,3 +1,4 @@
+import { List as AntList } from "antd"
 import { Wish } from "../../shared/api/api"
 
 type Props = {
@@ -16,12 +17,20 @@ export const List = ({ list }: Props) => {
     } 
 
     return (
-        <div>
-            {list.map(item => (
-                <div>
-                    <p>{item.title}</p>
-                </div>
-            ))}
-        </div>
+        <AntList
+            header={<div>Header</div>}
+            footer={<div>Footer</div>}
+            bordered
+            dataSource={list}
+            renderItem={(item, index) => (
+                <AntList.Item>
+                    <AntList.Item.Meta
+                        title={<p>{index}. {item.title}</p>}
+                        // title={<a href="https://ant.design">{item.title}</a>}
+                        description={item.description}
+                    />
+                </AntList.Item>
+            )}
+            />
     )
 }

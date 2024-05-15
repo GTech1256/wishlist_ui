@@ -1,5 +1,5 @@
 import { Spin } from "antd"
-import { List } from "../../entities/list/list"
+import { antList } from "../../entities/list/list"
 import { useGetPersonalWishesQuery } from "../../shared/api/api"
 import { useEffect } from "react"
 
@@ -34,6 +34,6 @@ export const MyList = () => {
     }
 
     return (
-        <List list={data} />
+        <antList list={data} />
     )
 }
