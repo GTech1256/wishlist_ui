@@ -104,7 +104,7 @@ export const AddWishPage = () => {
 
 
                 <Box mb={16}>
-                    <FormItem name="price" label="Цена" >
+                    <FormItem name="price" label="Цена ₽" >
                         <Input type="number"  />
                     </FormItem>
                 </Box>

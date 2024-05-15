@@ -18,6 +18,17 @@ const IconText = ({ icon, text }: { icon: React.FC; text: string | number }) => 
     </Space>
   );
 
+  // Create our number formatter.
+const formatter = new Intl.NumberFormat('ru', {
+    style: 'currency',
+    currency: 'RUB',
+    maximumFractionDigits: 0
+  
+    // These options are needed to round to whole numbers if that's what you want.
+    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+
 export const List = ({ title, list }: Props) => {
     if (list.length === 0) {
         return (
@@ -32,7 +43,7 @@ export const List = ({ title, list }: Props) => {
 
 
         if (item?.price) {
-            actions.push(<IconText icon={WalletOutlined} text={item.price} key="list-vertical-price" />)
+            actions.push(<IconText icon={WalletOutlined} text={formatter.format(item.price)} key="list-vertical-price" />)
         }
 
         if (item?.user) {
