@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-// import type { Pokemon } from './types'
 
-const BASE_URL = 'http://localhost:3000'
+const BASE_URL = 'https://wishlist.sytes.net/api'
 
 export type Item = {
     id: string;
@@ -19,22 +18,27 @@ export const getTokenFromLocalStorage = () => {
 
 // Define a service using a base URL and expected endpoints
 export const api = createApi({
-  reducerPath: 'pokemonApi',
+  reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
+    credentials: 'include',
     headers: {
       'Authorization': getTokenFromLocalStorage() || 'null',
   },
   }),
   endpoints: (builder) => ({
-    getList: builder.query<List, void>({
-      query: () => `/list`,
+    getAuthData: builder.query<List, void>({
+      query: () => `/auth/data`,
+    }),
+
+    getList: builder.query<List, { limit?: number }>({
+      query: ({ limit }) => `/list?limit=${limit}`,
     }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetListQuery } = api
+export const { useGetListQuery, useGetAuthDataQuery, useLazyGetAuthDataQuery } = api
 
 

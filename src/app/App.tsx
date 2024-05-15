@@ -10,15 +10,19 @@ import { router } from './router';
 import environment from 'shared/config/environment';
 import { Env } from 'types/enums/env';
 import { useTelegram } from './hooks/telegram';
+import { useGetAuthDataQuery } from 'shared/api/api';
 
 function App() {
   const [initDataUnsafe] = useInitData();
+  const auth = useGetAuthDataQuery()
 
   const { tg, platform, colorScheme } = useTelegram();
 
   useEffect(() => {
     tg.ready();
   }, []);
+
+  console.log({ auth })
 
   useEffect(() => {
     console.log({ ENV_ENV: environment.ENV }, 'environment.ENV')

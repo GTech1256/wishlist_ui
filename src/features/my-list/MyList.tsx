@@ -3,7 +3,7 @@ import { useGetListQuery } from "../../shared/api/api"
 
 export const MyList = () => {
 
-    const d = useGetListQuery()
+    const d = useGetListQuery({ limit: 5 })
     const { data, error, isError, isLoading, status } = d
 
     if (isError) {
