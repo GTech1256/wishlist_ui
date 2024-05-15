@@ -1,14 +1,21 @@
-import { List as AntList } from "antd"
-import { Wish } from "../../shared/api/api"
+import { List as AntList, Space } from "antd"
+import { User, Wish } from "../../shared/api/api"
+import { UserOutlined } from "@ant-design/icons"
+import React, { ReactNode } from "react"
 
 type Props = {
     title: string
-    list: Array<Wish>
+    list: Array<Wish & { user: User }>
 }
 
-export const List = ({ title, list }: Props) => {
-    // const [initDataUnsafe, initData] = useInitData();
+const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
+    <Space>
+      {React.createElement(icon)}
+      {text}
+    </Space>
+  );
 
+export const List = ({ title, list }: Props) => {
     if (list.length === 0) {
         return (
             <div>
@@ -20,11 +27,13 @@ export const List = ({ title, list }: Props) => {
     return (
         <AntList
             header={<div>{title}</div>}
-            // footer={<div>Footer</div>}
             bordered
             dataSource={list}
             renderItem={(item, index) => (
-                <AntList.Item>
+                <AntList.Item key={item.id} actions={[
+                    <IconText icon={UserOutlined} text={`${item?.user?.name} ${item?.user?.lastName}`} key="list-vertical-star-o" />,
+
+                ] as ReactNode[]}>
                     <AntList.Item.Meta
                         title={<p>{index + 1}. {item.title}</p>}
                         // title={<a href="https://ant.design">{item.title}</a>}

@@ -18,6 +18,13 @@ export type Wish = {
     image: string | null;
     isPublic: boolean;
 }
+
+export type User = {
+  id: string;
+  name: string;
+  lastName: string;
+}
+
 export type List = Array<Wish>
 
 export type UserStats = {
