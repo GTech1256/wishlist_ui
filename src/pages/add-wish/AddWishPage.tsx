@@ -12,6 +12,7 @@ import { BackButton, MainButton, useShowPopup } from "@vkruglikov/react-telegram
 import { useAddWishMutation } from "shared/api/api";
 import { useEffect } from "react";
 import { Checkbox } from "shared/ui/checkbox";
+import styles from "./AddWishPage.module.scss";
 
 type AddWishForm = {
     title: string;
@@ -83,7 +84,7 @@ export const AddWishPage = () => {
     }
     
       return (
-        <div>
+        <div className={styles.wrapper}>
             <BackButton onClick={handleBackClick} />
             <Form form={form}>
 

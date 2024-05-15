@@ -5,7 +5,7 @@ import React, { ReactNode } from "react"
 
 type Props = {
     title: string
-    list: Array<Wish & { user: User }>
+    list: Array<Wish & { user?: User }>
 }
 
 const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
@@ -30,10 +30,10 @@ export const List = ({ title, list }: Props) => {
             bordered
             dataSource={list}
             renderItem={(item, index) => (
-                <AntList.Item key={item.id} actions={[
+                <AntList.Item key={item.id} actions={item?.user ? [
                     <IconText icon={UserOutlined} text={`${item?.user?.name} ${item?.user?.lastName}`} key="list-vertical-star-o" />,
 
-                ] as ReactNode[]}>
+                ]: undefined}>
                     <AntList.Item.Meta
                         title={<p>{index + 1}. {item.title}</p>}
                         // title={<a href="https://ant.design">{item.title}</a>}
