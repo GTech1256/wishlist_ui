@@ -12,6 +12,7 @@ import { Env } from 'types/enums/env';
 import { useTelegram } from './hooks/telegram';
 import { useGetAuthDataQuery } from 'shared/api/api';
 
+// eslint-disable-next-line react-refresh/only-export-components
 function App() {
   const [initDataUnsafe] = useInitData();
   const auth = useGetAuthDataQuery()
@@ -47,18 +48,28 @@ function App() {
   }, [initDataUnsafe])
 
   return (
-    <Provider store={store}>
-      
-      <WebAppProvider
-        options={{
-          smoothButtonsTransition: true,
-        }}
-      >
-        <RouterProvider router={router} />
-      </WebAppProvider>
-    </Provider>
+    <RouterProvider router={router} />
   )
 }
 
-export default App
+// eslint-disable-next-line react-refresh/only-export-components
+const Providers = ({ children }: { children: JSX.Element }) => (
+  <Provider store={store}>
+      
+  <WebAppProvider
+    options={{
+      smoothButtonsTransition: true,
+    }}
+  >
+    {children}
+  </WebAppProvider>
+</Provider>
+)
+
+// eslint-disable-next-line react-refresh/only-export-components
+export default () => (
+<Providers>
+<App />
+</Providers>
+)
 
