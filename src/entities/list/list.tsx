@@ -18,8 +18,8 @@ export const List = ({ list }: Props) => {
 
     return (
         <AntList
-            header={<div>Header</div>}
-            footer={<div>Footer</div>}
+            header={<div>Личный список</div>}
+            // footer={<div>Footer</div>}
             bordered
             dataSource={list}
             renderItem={(item, index) => (
