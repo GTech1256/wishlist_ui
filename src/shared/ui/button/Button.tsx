@@ -1,9 +1,10 @@
 import classNames, { ClassValue } from "clsx";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Color, Size, Type } from "../../../types/interfaces/styles";
-import Spinner from "../spinner";
+import { Size, Type } from "../../../types/interfaces/styles";
+
 import styles from "shared/ui/button/Button.module.scss";
+import { Spin } from "antd";
 
 export type ButtonType = "button" | "submit" | "link" | "router";
 
@@ -96,17 +97,17 @@ const Button: React.FC<Partial<ButtonProps>> = (props) => {
     params.className
   );
 
-  const getSpinnerColor = (): Color => {
-    if (params.inversion || params.type === "secondary") {
-      return "dark";
-    } else {
-      return "white";
-    }
-  };
+  // const getSpinnerColor = (): Color => {
+  //   if (params.inversion || params.type === "secondary") {
+  //     return "dark";
+  //   } else {
+  //     return "white";
+  //   }
+  // };
 
   const renderContent = () => {
     return (
-      <Fragment>{!!params.loading ? <Spinner color={getSpinnerColor()} size={"small"} /> : props.children}</Fragment>
+      <Fragment>{!!params.loading ? <Spin size={"small"} /> : props.children}</Fragment>
     );
   };
 

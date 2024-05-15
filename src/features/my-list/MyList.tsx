@@ -1,3 +1,4 @@
+import { Spin } from "antd"
 import { List } from "../../entities/list/list"
 import { useGetPersonalWishesQuery } from "../../shared/api/api"
 
@@ -18,9 +19,7 @@ export const MyList = () => {
 
     if (isLoading) {
         return (
-            <div>
-                <p>Загрузка списка Желаний</p>
-            </div>
+            <Spin tip="Loading" />
         )
     }
 

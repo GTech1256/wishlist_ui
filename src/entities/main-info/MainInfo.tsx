@@ -1,38 +1,33 @@
-import { useGetUserStatsDataQuery } from 'shared/api/api'
+import { useGetUserStatsDataQuery, UserStats } from 'shared/api/api'
 import styles from './MainInfo.module.scss'
-import Spinner from 'shared/ui/spinner'
+import { Spin } from 'antd'
+import { Stats } from './Stats'
 
+const defaultUserStats: UserStats = {
+    wishComplete: 0,
+    wishPublic: 0,
+    wishTotal: 0
+}
 export const MainInfo = () => {
 
     const { data, isLoading, isError } = useGetUserStatsDataQuery()
 
     if (data) {
-        const { wishComplete, wishPublic, wishTotal } = data!
 
         return (
             <div className={styles.wrapper}>
-                <div className={styles.item}>
-                    <p className={styles.value}>{wishTotal}</p>
-                    <p className={styles.title}>Всего желаний</p>
-                </div>
-
-                <div className={styles.item}>
-                    <p className={styles.value}>{wishPublic}</p>
-                    <p className={styles.title}>Публичных желаний</p>
-                </div>
-
-                <div className={styles.item}>
-                    <p className={styles.value}>{wishComplete}</p>
-                    <p className={styles.title}>Завершенных желаний</p>
-                </div>
+                <Stats {...data} />
             </div>
         )
     }
 
     if (isLoading) {
-        return (<div className={styles.wrapper}>
-            <Spinner />
-        </div>
+        return (
+            <Spin tip="Загрузка">
+                <div className={styles.wrapper}>
+                    <Stats {...defaultUserStats} />
+                </div>
+            </Spin>
         )
     }
 

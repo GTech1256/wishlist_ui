@@ -18,9 +18,9 @@ export type Wish = {
     image: string | null;
     isPublic: boolean;
 }
-type List = Array<Wish>
+export type List = Array<Wish>
 
-type UserStats = {
+export type UserStats = {
   wishComplete: number,
   wishPublic: number,
   wishTotal: number

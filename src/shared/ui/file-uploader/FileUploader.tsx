@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { clsx } from "clsx";
-import { Upload, UploadProps, UploadFile } from "antd";
+import { Upload, UploadProps, UploadFile, Spin } from "antd";
 
 import styles from "./FileUploader.module.scss";
 import { t } from "../translation/translation";
@@ -8,7 +8,6 @@ import Span from "../span";
 import { FileUpload as FileUploadIcon } from "../icons/file-upload";
 import Box from "../box";
 import { Close } from "../icons/close";
-import Spinner from "../spinner";
 
 interface OwnProps extends UploadProps {
   label?: string;
@@ -174,7 +173,7 @@ export const FileUploader = ({
           <div className={clsx(styles.fileNameWrapper)}>
             {status === "uploading" && (
               <div className={clsx(styles.spinner)}>
-                <Spinner />
+                <Spin />
               </div>
             )}
             {!notValidSizeFiles?.[uid] && !notValidTypeFiles?.[uid] && !notValidFileNameFiles?.[uid] && (

@@ -22,7 +22,6 @@ import { ReactComponent as Pluse } from "../../assets/icons/pluse.svg";
 import { ReactComponent as Refresh } from "../../assets/icons/refresh.svg";
 import { ReactComponent as Search } from "../../assets/icons/search.svg";
 import { ReactComponent as SelectArrow } from "../../assets/icons/select-arrow.svg";
-import { ReactComponent as Spinner } from "../../assets/icons/spinner.svg";
 import { ReactComponent as Star } from "../../assets/icons/star.svg";
 import { ReactComponent as Time } from "../../assets/icons/time.svg";
 import { ReactComponent as Timer } from "../../assets/icons/timer.svg";
@@ -70,7 +69,7 @@ export type IconType =
   | "refresh"
   | "search"
   | "select-arrow"
-  | "spinner"
+  // | "spinner"
   | "star"
   | "time"
   | "timer"
@@ -114,7 +113,7 @@ const ICONS: { [key in IconType]: any } = {
   "warning-circle": WarningCircle,
   "refresh": Refresh,
   "paragraph": Paragraph,
-  "spinner": Spinner,
+  // "spinner": Spinner,
   "dashed": Dashed,
   "drag": Drag,
   "timer": Timer,
