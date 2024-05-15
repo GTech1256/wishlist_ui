@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { ROUTE_PATH } from "shared/config/routes";
 import { BackButton } from "@vkruglikov/react-telegram-web-app";
 import { useGetPersonalWishesQuery } from "shared/api/api";
-import { antList } from "entities/list/list";
+import { List } from "entities/list/list";
 
 
 export const MyWishListPage = () => {
@@ -17,7 +17,7 @@ export const MyWishListPage = () => {
         <div>
           <BackButton onClick={handleBackClick} />
 
-          {isLoading ? 'Loading' : isError ? 'Error' : data ? <antList list={data} /> : '***'}
+          {isLoading ? 'Loading' : isError ? 'Error' : data ? <List list={data} /> : '***'}
         </div>
       )
 }
