@@ -24,12 +24,13 @@ type AddWishForm = {
 
 const TEXT_SQL_MAX_LENGTH = 65_535
 const INT_SQL_MIN_VALUE = -2_147_483_648
-const INT_SQL_MAX_VALUE = 2_147_483_647
+// const INT_SQL_MAX_VALUE = 2_147_483_647
+const PRICE_MAX = 99_999_999
 
 const addWishSchema: ObjectSchema<AddWishForm> = yup.object({
     title: yup.string().max(255).required(),
     description: yup.string().max(TEXT_SQL_MAX_LENGTH),
-    price: yup.number().min(INT_SQL_MIN_VALUE).max(INT_SQL_MAX_VALUE),
+    price: yup.number().min(INT_SQL_MIN_VALUE).max(PRICE_MAX),
     image: yup.string(),
     isPublic: yup.bool(),
 });
