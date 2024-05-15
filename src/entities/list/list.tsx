@@ -1,7 +1,7 @@
-import { Item } from "../../shared/api/api"
+import { Wish } from "../../shared/api/api"
 
 type Props = {
-    list: Array<Item>
+    list: Array<Wish>
 }
 
 export const List = ({ list }: Props) => {

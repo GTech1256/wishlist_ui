@@ -9,6 +9,8 @@ import Input from "shared/ui/input/Input";
 import { useNavigate } from "react-router-dom";
 import { ROUTE_PATH } from "shared/config/routes";
 import { BackButton, MainButton, useShowPopup } from "@vkruglikov/react-telegram-web-app";
+import { useAddWishMutation } from "shared/api/api";
+import { useEffect } from "react";
 
 type AddWishForm = {
     name: string;
@@ -33,6 +35,20 @@ const addWishSchema: ObjectSchema<AddWishForm> = yup.object({
 export const AddWishPage = () => {
     const navigate = useNavigate()
     const showPopup = useShowPopup();
+    const [updatePost, result] = useAddWishMutation()
+
+    const nav = useNavigate()
+
+    useEffect(() => {
+            if (result.error) {
+
+            showPopup({
+                message: 'Произошла ошибка'
+              });
+
+              console.log(result.error)
+            }
+    }, [result.error])
     
     const form = useForm<AddWishForm>({
         resolver: yupResolver(addWishSchema),
@@ -42,17 +58,19 @@ export const AddWishPage = () => {
       });
 
     const handleSubmit = () => {
-        console.log('submit', form.formState.errors)
-        form.handleSubmit((data) => {
-            console.log(data)
-            // alert('Данные отправлены')
+        form.handleSubmit(async (data) => {
+            updatePost(data)
+
+            
 
             showPopup({
-                message: 'Hello, I am popup',
+                message: 'Данные отправлены',
               });
             form.reset()
+            nav(ROUTE_PATH.home);
         }, (errr) => {
             console.log(errr)
+            
         })()
     }
 
@@ -87,7 +105,7 @@ export const AddWishPage = () => {
 
                 </Form>
 
-                <MainButton text="Создать" onClick={handleSubmit} />
+                <MainButton text="Создать" onClick={handleSubmit} disabled={result.isLoading} />
         </div>
       )
 }

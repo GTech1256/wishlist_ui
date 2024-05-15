@@ -1,9 +1,9 @@
 import { List } from "../../entities/list/list"
-import { useGetListQuery } from "../../shared/api/api"
+import { useGetPersonalWishesQuery } from "../../shared/api/api"
 
 export const MyList = () => {
 
-    const d = useGetListQuery({ limit: 5 })
+    const d = useGetPersonalWishesQuery({ limit: 5 })
     const { data, error, isError, isLoading, status } = d
 
     if (isError) {
@@ -24,7 +24,13 @@ export const MyList = () => {
         )
     }
 
+    if (!data) {
+        return <p>
+            ***
+        </p>
+    }
+
     return (
-        <List list={data!} />
+        <List list={data} />
     )
 }

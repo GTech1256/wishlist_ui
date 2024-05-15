@@ -2,15 +2,29 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const BASE_URL = 'https://wishlist.sytes.net/api'
 
-export type Item = {
+export type CreateWish = {
+  name: string;
+  description?: string;
+  price?: number;
+  image?: string;
+  isPublic?: boolean;
+}
+
+export type Wish = {
     id: string;
     name: string;
-    description: string;
-    price: number;
-    image: string;
-
+    description: string | null;
+    price: number | null;
+    image: string | null;
+    isPublic: boolean;
 }
-type List = Array<Item>
+type List = Array<Wish>
+
+type UserStats = {
+  wishComplete: number,
+  wishPublic: number,
+  wishTotal: number
+}
 
 export const getTokenFromLocalStorage = () => {
   return sessionStorage.getItem('userID');
@@ -32,14 +46,41 @@ export const api = createApi({
       query: () => `/user/auth/data`,
     }),
 
-    getList: builder.query<List, { limit?: number }>({
-      query: ({ limit }) => `/list?limit=${limit}`,
+    getUserStatsData: builder.query<UserStats, void>({
+      query: () => `/user/stats`,
+    }),
+
+    addWish: builder.mutation<Wish, CreateWish>({
+      query: (body) => ({
+        url: `wish`,
+        method: 'POST',
+        body,
+      }),
+    }),
+
+    editWish: builder.mutation<Wish, Wish>({
+      query: ({ id, ...wish }) => ({
+        url: `wish/${id}`,
+        method: 'PATCH',
+        body: wish,
+      }),
+    }),
+
+    deleteWish: builder.mutation<Wish['id'], Wish>({
+      query: (id) => ({
+        url: `wish/${id}`,
+        method: 'DELETE',
+      }),
+    }),
+
+    getPersonalWishes: builder.query<List, { limit?: number } | void>({
+      query: ({ limit } = {}) => `/wish/user?limit=${limit}`,
     }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetListQuery, useGetAuthDataQuery, useLazyGetAuthDataQuery } = api
+export const { useGetPersonalWishesQuery, useGetAuthDataQuery, useLazyGetAuthDataQuery, useAddWishMutation, useEditWishMutation, useGetUserStatsDataQuery } = api
 
 
