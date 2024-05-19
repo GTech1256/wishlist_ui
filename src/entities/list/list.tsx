@@ -52,7 +52,7 @@ export const List = ({ title, list, buttons }: Props) => {
         }
 
         if (buttons) {
-            actions.push(buttons[0])
+            actions.push(buttons[0](item))
         }
 
         return actions
