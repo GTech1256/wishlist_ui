@@ -9,7 +9,7 @@ type Item = Wish & { user?: User }
 type Props = {
     title: string
     list: Array<Item>
-    buttons?: [JSX.Element]
+    buttons?: [(item: Item) => JSX.Element]
 }
 
 const IconText = ({ icon, text }: { icon: React.FC; text: string | number }) => (

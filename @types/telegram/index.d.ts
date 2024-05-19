@@ -196,7 +196,7 @@ export declare namespace TelegramWebApps {
 
     showAlert(message, callback?: unknown): void;
 
-    showConfirm(message, callback?: unknown): void;
+    showConfirm(message, callback?: (isConfirm: boolean) => void): void;
 
     showPopup(params: {message: string, title?: string}, callback?: unknown): void;
   }
