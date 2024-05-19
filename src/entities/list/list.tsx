@@ -1,4 +1,4 @@
-import { List as AntList, Space } from "antd"
+import { List as AntList, Space, Tooltip } from "antd"
 import { User, Wish } from "../../shared/api/api"
 import { UserOutlined, WalletOutlined } from "@ant-design/icons"
 import React from "react"
@@ -62,9 +62,16 @@ export const List = ({ title, list }: Props) => {
             renderItem={(item, index) => (
                 <AntList.Item key={item.id} actions={getActions(item)}>
                     <AntList.Item.Meta
-                        title={<p className={styles.cutText} title={item.title}>{index + 1}. {item.title}</p>}
-                        // title={<a href="https://ant.design">{item.title}</a>}
-                        description={<p className={styles.cutText} title={item.description ?? undefined}>{item.description}</p>}
+                        title={
+                            <Tooltip title={item.title}>
+                                <p className={styles.cutText} title={item.title}>{index + 1}. {item.title}</p>
+                            </Tooltip>
+                        }
+                        description={
+                            <Tooltip title={item.description ?? undefined}>
+                                <p className={styles.cutText}>{item.description}</p>
+                            </Tooltip>
+                    }
                     />
                 </AntList.Item>
             )}
