@@ -9,6 +9,7 @@ type Item = Wish & { user?: User }
 type Props = {
     title: string
     list: Array<Item>
+    buttons?: [JSX.Element]
 }
 
 const IconText = ({ icon, text }: { icon: React.FC; text: string | number }) => (
@@ -29,7 +30,7 @@ const formatter = new Intl.NumberFormat('ru', {
     //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
   });
 
-export const List = ({ title, list }: Props) => {
+export const List = ({ title, list, buttons }: Props) => {
     if (list.length === 0) {
         return (
             <div>
@@ -50,6 +51,9 @@ export const List = ({ title, list }: Props) => {
             actions.push(<IconText icon={UserOutlined} text={`${item?.user?.name} ${item?.user?.lastName}`} key="list-vertical-star-o" />)
         }
 
+        if (buttons) {
+            actions.push(buttons[0])
+        }
 
         return actions
     }

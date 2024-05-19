@@ -93,6 +93,6 @@ export const api = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetPersonalWishesQuery, useGetAuthDataQuery, useLazyGetAuthDataQuery, useAddWishMutation, useEditWishMutation, useGetUserStatsDataQuery, useGetPublicWishesQuery } = api
+export const { useGetPersonalWishesQuery, useGetAuthDataQuery, useLazyGetAuthDataQuery, useAddWishMutation, useEditWishMutation, useDeleteWishMutation,  useGetUserStatsDataQuery, useGetPublicWishesQuery } = api
 
 
