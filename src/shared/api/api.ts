@@ -73,7 +73,7 @@ export const api = createApi({
       }),
     }),
 
-    deleteWish: builder.mutation<Wish['id'], Wish>({
+    deleteWish: builder.mutation<void, Wish['id']>({
       query: (id) => ({
         url: `wish/${id}`,
         method: 'DELETE',
@@ -93,6 +93,6 @@ export const api = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetPersonalWishesQuery, useGetAuthDataQuery, useLazyGetAuthDataQuery, useAddWishMutation, useEditWishMutation, useGetUserStatsDataQuery, useGetPublicWishesQuery } = api
+export const { useGetPersonalWishesQuery, useLazyGetPersonalWishesQuery, useGetAuthDataQuery, useLazyGetAuthDataQuery, useAddWishMutation, useEditWishMutation, useDeleteWishMutation,  useGetUserStatsDataQuery, useGetPublicWishesQuery } = api
 
 
