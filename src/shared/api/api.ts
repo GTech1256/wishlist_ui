@@ -81,12 +81,28 @@ export const api = createApi({
     }),
 
     getPersonalWishes: builder.query<List, { limit?: number } | void>({
-      query: ({ limit } = {}) => `/wish/user?limit=${limit}`,
+      query: ({ limit } = {}) => {
+        const query = new URLSearchParams();
+
+        if (limit) {
+          query.append('limit', limit.toString());
+        }
+
+        return `/wish/user${query.toString() ? `?${query.toString()}` : ''}`;
+      },
     }),
 
 
     getPublicWishes: builder.query<List, { limit?: number } | void>({
-      query: ({ limit } = {}) => `/wish/public?limit=${limit}`,
+      query: ({ limit } = {}) => {
+        const query = new URLSearchParams();
+
+        if (limit) {
+          query.append('limit', limit.toString());
+        }
+
+        return `/wish/public${query.toString() ? `?${query.toString()}` : ''}`;
+      },
     }),
   }),
 })

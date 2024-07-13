@@ -1,15 +1,18 @@
-import { List as AntList, Space, Tooltip } from "antd"
+import { List as AntList, Button, Space, Tooltip } from "antd"
 import { User, Wish } from "../../shared/api/api"
-import { UserOutlined, WalletOutlined } from "@ant-design/icons"
+import { DeleteOutlined, UserOutlined, WalletOutlined } from "@ant-design/icons"
 import React from "react"
-import styles from "./my-wist-list.module.scss"
+import styles from "./list.module.scss"
 
 type Item = Wish & { user?: User }
 
 type Props = {
     title: string
     list: Array<Item>
-    buttons?: [(item: Item) => JSX.Element]
+    onDeleteClick: (item: Item) => () => void
+    deleteData: {
+        isLoading: boolean
+    }
 }
 
 const IconText = ({ icon, text }: { icon: React.FC; text: string | number }) => (
@@ -30,7 +33,7 @@ const formatter = new Intl.NumberFormat('ru', {
     //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
   });
 
-export const List = ({ title, list, buttons }: Props) => {
+export const MyWithList = ({ title, list, deleteData, onDeleteClick }: Props) => {
     if (list.length === 0) {
         return (
             <div>
@@ -51,9 +54,16 @@ export const List = ({ title, list, buttons }: Props) => {
             actions.push(<IconText icon={UserOutlined} text={`${item?.user?.name} ${item?.user?.lastName}`} key="list-vertical-star-o" />)
         }
 
-        if (buttons) {
-            actions.push(buttons[0](item))
-        }
+        actions.push(
+            <Button
+                type="primary"
+                icon={<DeleteOutlined />}
+                danger
+                ghost
+                loading={deleteData.isLoading}
+                onClick={onDeleteClick(item)}
+                />
+        )
 
         return actions
     }
@@ -64,7 +74,7 @@ export const List = ({ title, list, buttons }: Props) => {
             bordered
             dataSource={list}
             renderItem={(item, index) => (
-                <AntList.Item key={item.id} actions={getActions(item)}>
+                <AntList.Item key={item.id} className={styles.wrapper} actions={getActions(item)}>
                     <AntList.Item.Meta
                         title={
                             <Tooltip title={item.title}>

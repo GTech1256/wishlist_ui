@@ -1,0 +1,20 @@
+.cutText { 
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 183px; 
+  height: 22px; 
+  white-space: nowrap;
+}
+
+
+:global(.ant-list-item-action) {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.wrapper {
+  ul li:nth-child(1) {
+    text-align: end;
+  }
+}
