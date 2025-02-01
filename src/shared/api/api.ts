@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const BASE_URL = 'http://wish.zapto.org/api'
+const BASE_URL = 'https://wish.zapto.org/api'
 
 export type CreateWish = {
   title: string;
