@@ -45,7 +45,7 @@ export const api = createApi({
     credentials: 'include',
     headers: {
       'Authorization': getTokenFromLocalStorage() || 'null',
-      // 'init-data': Telegram.WebApp.initData,
+      'init-data': Telegram.WebApp.initData,
   },
   }),
   endpoints: (builder) => ({
