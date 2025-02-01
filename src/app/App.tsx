@@ -37,6 +37,22 @@ function App() {
     // document.body.classList.add(`theme-${colorScheme}`);
   }, [platform, colorScheme]);
 
+  useEffect(() => {
+    console.log({ ENV_ENV: environment.ENV }, 'environment.ENV')
+
+    if (environment.ENV === Env.Dev) {
+      document.documentElement.classList.add("dev");
+    }
+
+    // document.body.classList.add(`theme-${colorScheme}`);
+  }, []);
+
+  // const initDataUnsafe = {
+  //   user: {
+  //     id: 1010
+  //   }
+  // }
+
 
   useEffect(() => {
     if (initDataUnsafe?.user?.id) {

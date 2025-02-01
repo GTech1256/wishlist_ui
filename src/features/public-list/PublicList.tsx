@@ -1,15 +1,10 @@
 import { Spin } from "antd"
 import { List } from "../../entities/list/list"
 import { useGetPublicWishesQuery } from "../../shared/api/api"
-import { useEffect } from "react"
 
 export const PublicList = () => {
-    const d = useGetPublicWishesQuery({ limit: 5 })
+    const d = useGetPublicWishesQuery({ limit: 5 }, { refetchOnMountOrArgChange: true })
     const { data, error, isError, isLoading, status } = d
-
-    useEffect(() => {
-        d.refetch()
-    }, [d.refetch])
 
     if (isError) {
         console.log({ error, status })

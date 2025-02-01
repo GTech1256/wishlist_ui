@@ -1,7 +1,29 @@
+// import { MainButton } from "@vkruglikov/react-telegram-web-app";
 import environment from "../../shared/config/environment";
 import { Env } from "../../types/enums/env";
 
 const tg = Telegram.WebApp;
+
+// const tg = {
+//   close: () => {},
+//   MainButton: {
+//     isVisible: true,
+//     hide: () => {},
+//     show: () => {},
+//   },
+//   platform: 'web',
+//   BackButton: {
+//     isVisible: true,
+//     hide: () => {},
+//     show: () => {},
+//   },
+//   isVisible: true,
+//   initDataUnsafe: {
+//     user: {
+//       id: 1010
+//     }
+//   }
+// }
 
 export const TG_USER_ID = tg.initDataUnsafe?.user?.id;
 

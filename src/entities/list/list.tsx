@@ -1,8 +1,8 @@
-import { List as AntList, Space, Tooltip } from "antd"
+import { List as AntList, Avatar, Space, Tooltip } from "antd"
 import { User, Wish } from "../../shared/api/api"
 import { UserOutlined, WalletOutlined } from "@ant-design/icons"
 import React from "react"
-import styles from "./my-wist-list.module.scss"
+import styles from "./list.module.scss"
 
 type Item = Wish & { user?: User }
 
@@ -67,9 +67,18 @@ export const List = ({ title, list, buttons }: Props) => {
                 <AntList.Item key={item.id} actions={getActions(item)}>
                     <AntList.Item.Meta
                         title={
-                            <Tooltip title={item.title}>
-                                <p className={styles.cutText} title={item.title}>{index + 1}. {item.title}</p>
-                            </Tooltip>
+                            <div>
+                                <div>
+                                <Avatar>
+                                </Avatar>
+
+                                {item.user?.name}
+                                </div>
+
+                                <Tooltip title={item.title}>
+                                    <p className={styles.cutText} title={item.title}>{index + 1}. {item.title}</p>
+                                </Tooltip>
+                            </div>
                         }
                         description={
                             <Tooltip title={item.description ?? undefined}>

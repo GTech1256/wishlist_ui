@@ -11,13 +11,13 @@ export const MyWishListPage = () => {
     const navigate = useNavigate()
     const { data, isLoading, isError, refetch } = useGetPersonalWishesQuery()
     const [deleteWishMutate, deleteData] = useDeleteWishMutation()
-    const d = useTelegram()
+    const tg = useTelegram()
     const handleBackClick = () => {
         navigate(ROUTE_PATH.home)
     }
 
     const handleDeleteClick = (item: Wish) => () => {
-      d.showConfirm(`Вы точно хотите удалить желание ${item.title}?`, async (isConfirm) => {
+      tg.showConfirm(`Вы точно хотите удалить желание ${item.title}?`, async (isConfirm) => {
         if (isConfirm) {
           await deleteWishMutate(item.id)
           refetch()
@@ -27,9 +27,9 @@ export const MyWishListPage = () => {
 
     useEffect(() => {
       if (deleteData.error) {
-        d.showAlert("Произошла ошибка удаления")
+        tg.showAlert("Произошла ошибка удаления")
       }
-    }, [deleteData.error, d])
+    }, [deleteData.error, tg])
     
     return (
       <div>

@@ -2,7 +2,7 @@ import { List as AntList, Button, Space, Tooltip } from "antd"
 import { User, Wish } from "../../shared/api/api"
 import { DeleteOutlined, UserOutlined, WalletOutlined } from "@ant-design/icons"
 import React from "react"
-import styles from "./list.module.scss"
+import styles from "./my-wish-list.module.scss"
 
 type Item = Wish & { user?: User }
 
