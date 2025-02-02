@@ -69,10 +69,9 @@ export const List = ({ title, list, buttons }: Props) => {
                         title={
                             <div>
                                 <div>
-                                <Avatar>
-                                </Avatar>
+                                    <Avatar src={item.user?.avatar}/>
 
-                                {item.user?.name}
+                                    {item.user?.name}
                                 </div>
 
                                 <Tooltip title={item.title}>

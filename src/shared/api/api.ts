@@ -23,6 +23,7 @@ export type User = {
   id: string;
   name: string;
   lastName: string;
+  avatar?: string;
 }
 
 export type List = Array<Wish>
